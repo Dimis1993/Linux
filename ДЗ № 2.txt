@@ -1,0 +1,291 @@
+﻿Задание #1:
+  - Создаем виртуальную машину (Windows) 
+  - Настроить -> Дополнительно -> Общий буфер обмена: Двунаправленный.
+  - Настроить -> Сеть -> Адаптер 2-> Тип подключения: Виртуальный адаптер хоста (или Внутренняя сеть)
+Задание #2:
+dmitriy@dmitriy-VirtualBox:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:2b:54:74 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic noprefixroute enp0s3
+       valid_lft 86116sec preferred_lft 86116sec
+    inet6 fe80::1be5:114e:ea57:5d49/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+dmitriy@dmitriy-VirtualBox:~$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/dmitriy/.ssh/id_rsa): 
+/home/dmitriy/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/dmitriy/.ssh/id_rsa.
+Your public key has been saved in /home/dmitriy/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:cnhbOeugIjjCbcYFzJ904ZGYC/7Ogtx9sny7SZIwCf4 dmitriy@dmitriy-VirtualBox
+The key's randomart image is:
++---[RSA 2048]----+
+|      o .        |
+|   . o +         |
+| .+ . o o        |
+|. .=.o +   .     |
+| . += = S +      |
+|  . o=.+ o o     |
+|o.=E=o .o .      |
+|++.Bo=o+.o       |
+|..o..+*+o .      |
++----[SHA256]-----+
+dmitriy@dmitriy-VirtualBox:~$ ls -la
+итого 108
+drwxr-xr-x 15 dmitriy dmitriy 4096 мая  6 21:56  .
+drwxr-xr-x  3 root    root    4096 мая  2 21:11  ..
+-rw-------  1 dmitriy dmitriy  721 мая  6 19:58  .bash_history
+-rw-r--r--  1 dmitriy dmitriy  220 мая  2 21:11  .bash_logout
+-rw-r--r--  1 dmitriy dmitriy 3771 мая  2 21:11  .bashrc
+drwx------ 11 dmitriy dmitriy 4096 мая  6 20:14  .cache
+drwx------ 11 dmitriy dmitriy 4096 мая  3 23:57  .config
+-rw-r--r--  1 dmitriy dmitriy 8980 мая  2 21:11  examples.desktop
+drwx------  3 dmitriy dmitriy 4096 мая  2 21:40  .gnupg
+-rw-------  1 dmitriy dmitriy 3294 мая  6 21:56  .ICEauthority
+drwx------  3 dmitriy dmitriy 4096 мая  2 21:40  .local
+-rw-r--r--  1 dmitriy dmitriy  807 мая  2 21:11  .profile
+drwx------  2 dmitriy dmitriy 4096 мая  6 20:39  .ssh
+-rw-r--r--  1 dmitriy dmitriy    0 мая  2 22:43  .sudo_as_admin_successful
+-rw-r-----  1 dmitriy dmitriy    5 мая  6 21:56  .vboxclient-clipboard.pid
+-rw-r-----  1 dmitriy dmitriy    5 мая  6 21:56  .vboxclient-display-svga-x11.pid
+-rw-r-----  1 dmitriy dmitriy    5 мая  6 21:56  .vboxclient-draganddrop.pid
+-rw-r-----  1 dmitriy dmitriy    5 мая  6 21:56  .vboxclient-seamless.pid
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Видео
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Документы
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Загрузки
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Изображения
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Музыка
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Общедоступные
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41 'Рабочий стол'
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Шаблоны
+dmitriy@dmitriy-VirtualBox:~$ ls -la ~/.ssh/
+итого 20
+drwx------  2 dmitriy dmitriy 4096 мая  6 20:39 .
+drwxr-xr-x 15 dmitriy dmitriy 4096 мая  6 21:56 ..
+-rw-------  1 dmitriy dmitriy 1679 мая  6 22:00 id_rsa
+-rw-r--r--  1 dmitriy dmitriy  408 мая  6 22:00 id_rsa.pub
+-rw-r--r--  1 dmitriy dmitriy  666 мая  6 21:42 known_hosts
+dmitriy@dmitriy-VirtualBox:~$ cat ~/.ssh/id_rsa
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEApN+ncroImzHNsaHQ9ATecYWwm9Q5SELdMpvwqf5YnfUOwdCN
+E0v+mc13zH3XTWZwUPs+yX0ffiV171T1y0JcuBgLiwgZ8c/mQPQe4imPETt88KGy
+dSHMw3t8i5L8BLqL0iSEyd6JZkUk0Uh0+58yj7hFal72+07g6HnM+Jvl+zEaUurj
+0P14DMiwzXUXlXxyAt36PZNKDFoIa1v4fIkl95GMMwv5E6RabrtdmutNpw/QqoMJ
+DnLlPiZLNkw+1+eZIC6EjW2y0J7rHl2N1BZOj4g3V2GRmDPk1mMZGzCeKA+6LybI
+8q40LsM4iE3AkZqTfaxJ7v9RQVSavAfjckYQqQIDAQABAoIBAQCdS9eYaA4f6lMA
+/o240RBcJB0LflysKUaZqxbfSA7JnGvY0xxU5bLgj5uU2BZZ/Lp5OEp9tscd9aVf
+kaHyqryE0kPo//CouB1HqN/yC4439ZZMiSgWAgo2EhEPpEqWRFdzRG3/njVeAeeP
+V15sVUTKwxZO1o0x095VTScVpL60d2s9Ayb02tM/lanWN8aECGU4xW+JHxk4rSdg
+3lr1V2j5mfelWWc9G14Z1rg6SmaTE37QNiRfs+6W80WqFRp3DMI64NXIUyhcHw2C
+/83KMOCnLencezV/cvX8TDgDtJniz9feyGoNP2Pz0Tk9wLsJteMiHsK7PEHvITbm
+lAxKy7aBAoGBANF1yEBBLnR7M6V+Qd+I8kVtl/cfO92kUiNzY8xxQzBIsV54fYL5
++N0MRcTQIc6ECtNv8dmkPtxh0QcGlhe4/LMK2QpvW24XMwd/mhO3cbDk7mugWVtA
+JTyyKiz4WP9bVH5cHxNPHOz/DxK8ffMMv6IdcNCVM0F48GvUW/rXoey5AoGBAMmB
+xJyszT2b0pOdgqvPRrKxeQbUb4eYBwrlBZTwUY7HilXQui2zoLEtbQK84Uw2mCc+
+ArtVBqW8lPSrFoDRxlfYv9Vkdj3l2g21wqSCT76WxPqU3lGgSLWAFjNwkjsRS/NB
+5FnuQlaDyOjwCN/+uWgWeyNLpJhsHsRseflrlatxAoGAJtDt8EJkCn/+XS/do0As
+rYMWw1wNaxCVjC5JE0z2B4+hFwG7OLd8T/KDR2rOqQe9Pduj9RJD9/FEnEmzLOhC
+JCfhetaSGf/AnCYgdoDrV73FFTrc9FUZ0Xqu6DCJxaC2Msh9lcV2ddD6iR1XNeBp
+7vAHxQ+xNPPlkgYDmaO2RTkCgYAZnlHsyVtelczzz3apeTS3yzBj2eZECuP6Upuf
+D96OlHfV6S+CV+/6FphhXLoYAmjdtFiMkIbD03HsmUPHJORejsP00UznGa3bSFxy
+pc6VoH1yjjKllgcobBxmdc1hjRVm2924QT5V2XNVig7Wy3+u6AzHs/o9FqHivxfS
+ygbBQQKBgQCSyJMSLzj9U1e6xp3dfX6GFK2U3bBAmtHC4a6nhUEzEYPQxsJluY1Z
+v517amFZQKqygpFyA+RrpctszW3KlAvPxQnOi75k0FYG0f7gebQFZjaUjrufXN2a
+ymILSC/db8cYSZsVm63VekCSA63r38TNC07Do1vc95mH8m9VzUZd4Q==
+-----END RSA PRIVATE KEY-----
+dmitriy@dmitriy-VirtualBox:~$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCk36dyugibMc2xodD0BN5xhbCb1DlIQt0ym/Cp/lid9Q7B0I0TS/6ZzXfMfddNZnBQ+z7JfR9+JXXvVPXLQly4GAuLCBnxz+ZA9B7iKY8RO3zwobJ1IczDe3yLkvwEuovSJITJ3olmRSTRSHT7nzKPuEVqXvb7TuDoecz4m+X7MRpS6uPQ/XgMyLDNdReVfHIC3fo9k0oMWghrW/h8iSX3kYwzC/kTpFpuu12a602nD9CqgwkOcuU+Jks2TD7X55kgLoSNbbLQnuseXY3UFk6PiDdXYZGYM+TWYxkbMJ4oD7ovJsjyrjQuwziITcCRmpN9rEnu/1FBVJq8B+NyRhCp dmitriy@dmitriy-VirtualBox
+dmitriy@dmitriy-VirtualBox:~$ cp -/.ssh/id_rsa -/Desctop/
+cp: неверный ключ — «/»
+По команде «cp --help» можно получить дополнительную информацию.
+dmitriy@dmitriy-VirtualBox:~$ cp ~/.ssh/id_rsa ~/Desctop/
+cp: невозможно создать обычный файл '/home/dmitriy/Desctop/': Это не каталог
+dmitriy@dmitriy-VirtualBox:~$ cp ~/.ssh/id_rsa ~/Desctop/
+cp: невозможно создать обычный файл '/home/dmitriy/Desctop/': Это не каталог
+dmitriy@dmitriy-VirtualBox:~$ cat ~/Desctop/id_rsa
+cat: /home/dmitriy/Desctop/id_rsa: Нет такого файла или каталога
+dmitriy@dmitriy-VirtualBox:~$ ssh dmitriy@10.0.2.15 -i
+option requires an argument -- i
+usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]
+           [-D [bind_address:]port] [-E log_file] [-e escape_char]
+           [-F configfile] [-I pkcs11] [-i identity_file]
+           [-J [user@]host[:port]] [-L address] [-l login_name] [-m mac_spec]
+           [-O ctl_cmd] [-o option] [-p port] [-Q query_option] [-R address]
+           [-S ctl_path] [-W host:port] [-w local_tun[:remote_tun]]
+           [user@]hostname [command]
+dmitriy@dmitriy-VirtualBox:~$ git clone git@github.com:Dimis1993/Linux.git
+
+Command 'git' not found, but can be installed with:
+
+sudo apt install git
+
+dmitriy@dmitriy-VirtualBox:~$ sudo apt install git
+[sudo] пароль для dmitriy: 
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Будут установлены следующие дополнительные пакеты:
+  git-man liberror-perl
+Предлагаемые пакеты:
+  git-daemon-run | git-daemon-sysvinit git-doc git-el git-email git-gui gitk
+  gitweb git-cvs git-mediawiki git-svn
+Следующие НОВЫЕ пакеты будут установлены:
+  git git-man liberror-perl
+Обновлено 0 пакетов, установлено 3 новых пакетов, для удаления отмечено 0 пакетов, и 156 пакетов не обновлено.
+Необходимо скачать 4 741 kB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 34,0 MB.
+Хотите продолжить? [Д/н] Y
+Пол:1 http://ru.archive.ubuntu.com/ubuntu bionic/main amd64 liberror-perl all 0.17025-1 [22,8 kB]
+Пол:2 http://ru.archive.ubuntu.com/ubuntu bionic-updates/main amd64 git-man all 1:2.17.1-1ubuntu0.7 [804 kB]
+Пол:3 http://ru.archive.ubuntu.com/ubuntu bionic-updates/main amd64 git amd64 1:2.17.1-1ubuntu0.7 [3 915 kB]
+Получено 4 741 kB за 1с (3 839 kB/s) 
+Выбор ранее не выбранного пакета liberror-perl.
+(Чтение базы данных … на данный момент установлен 135531 файл и каталог.)
+Подготовка к распаковке …/liberror-perl_0.17025-1_all.deb …
+Распаковывается liberror-perl (0.17025-1) …
+Выбор ранее не выбранного пакета git-man.
+Подготовка к распаковке …/git-man_1%3a2.17.1-1ubuntu0.7_all.deb …
+Распаковывается git-man (1:2.17.1-1ubuntu0.7) …
+Выбор ранее не выбранного пакета git.
+Подготовка к распаковке …/git_1%3a2.17.1-1ubuntu0.7_amd64.deb …
+Распаковывается git (1:2.17.1-1ubuntu0.7) …
+Настраивается пакет git-man (1:2.17.1-1ubuntu0.7) …
+Настраивается пакет liberror-perl (0.17025-1) …
+Настраивается пакет git (1:2.17.1-1ubuntu0.7) …
+Обрабатываются триггеры для man-db (2.8.3-2ubuntu0.1) …
+dmitriy@dmitriy-VirtualBox:~$ ls -la
+итого 108
+drwxr-xr-x 15 dmitriy dmitriy 4096 мая  6 21:56  .
+drwxr-xr-x  3 root    root    4096 мая  2 21:11  ..
+-rw-------  1 dmitriy dmitriy  721 мая  6 19:58  .bash_history
+-rw-r--r--  1 dmitriy dmitriy  220 мая  2 21:11  .bash_logout
+-rw-r--r--  1 dmitriy dmitriy 3771 мая  2 21:11  .bashrc
+drwx------ 12 dmitriy dmitriy 4096 мая  6 22:13  .cache
+drwx------ 11 dmitriy dmitriy 4096 мая  3 23:57  .config
+-rw-r--r--  1 dmitriy dmitriy 8980 мая  2 21:11  examples.desktop
+drwx------  3 dmitriy dmitriy 4096 мая  2 21:40  .gnupg
+-rw-------  1 dmitriy dmitriy 3294 мая  6 21:56  .ICEauthority
+drwx------  3 dmitriy dmitriy 4096 мая  2 21:40  .local
+-rw-r--r--  1 dmitriy dmitriy  807 мая  2 21:11  .profile
+drwx------  2 dmitriy dmitriy 4096 мая  6 20:39  .ssh
+-rw-r--r--  1 dmitriy dmitriy    0 мая  2 22:43  .sudo_as_admin_successful
+-rw-r-----  1 dmitriy dmitriy    5 мая  6 21:56  .vboxclient-clipboard.pid
+-rw-r-----  1 dmitriy dmitriy    5 мая  6 21:56  .vboxclient-display-svga-x11.pid
+-rw-r-----  1 dmitriy dmitriy    5 мая  6 21:56  .vboxclient-draganddrop.pid
+-rw-r-----  1 dmitriy dmitriy    5 мая  6 21:56  .vboxclient-seamless.pid
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Видео
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Документы
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Загрузки
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Изображения
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Музыка
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Общедоступные
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41 'Рабочий стол'
+drwxr-xr-x  2 dmitriy dmitriy 4096 мая  2 21:41  Шаблоны
+dmitriy@dmitriy-VirtualBox:~$ ls -l
+итого 44
+-rw-r--r-- 1 dmitriy dmitriy 8980 мая  2 21:11  examples.desktop
+drwxr-xr-x 2 dmitriy dmitriy 4096 мая  2 21:41  Видео
+drwxr-xr-x 2 dmitriy dmitriy 4096 мая  2 21:41  Документы
+drwxr-xr-x 2 dmitriy dmitriy 4096 мая  2 21:41  Загрузки
+drwxr-xr-x 2 dmitriy dmitriy 4096 мая  2 21:41  Изображения
+drwxr-xr-x 2 dmitriy dmitriy 4096 мая  2 21:41  Музыка
+drwxr-xr-x 2 dmitriy dmitriy 4096 мая  2 21:41  Общедоступные
+drwxr-xr-x 2 dmitriy dmitriy 4096 мая  2 21:41 'Рабочий стол'
+drwxr-xr-x 2 dmitriy dmitriy 4096 мая  2 21:41  Шаблоны
+dmitriy@dmitriy-VirtualBox:~$ cd Linux
+bash: cd: Linux: Нет такого файла или каталога
+dmitriy@dmitriy-VirtualBox:~$ git clone git@github.com:Dimis1993/Linux.git
+Клонирование в «Linux»…
+The authenticity of host 'github.com (140.82.118.3)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,140.82.118.3' (RSA) to the list of known hosts.
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Получение объектов: 100% (3/3), готово.
+dmitriy@dmitriy-VirtualBox:~$ cd Linux
+dmitriy@dmitriy-VirtualBox:~/Linux$ git checkout -b branch1
+Переключено на новую ветку «branch1»
+dmitriy@dmitriy-VirtualBox:~/Linux$ git branch
+* branch1
+  master
+dmitriy@dmitriy-VirtualBox:~/Linux$ git checkout master
+Переключено на ветку «master»
+Ваша ветка обновлена в соответствии с «origin/master».
+dmitriy@dmitriy-VirtualBox:~/Linux$ git checkout branch1
+Переключено на ветку «branch1»
+dmitriy@dmitriy-VirtualBox:~/Linux$ git push
+fatal: Текущая ветка branch1 не имеет вышестоящей ветки.
+Чтобы отправить текущую ветку и установить внешнюю ветку как вышестоящую для этой ветки, используйте
+
+    git push --set-upstream origin branch1
+
+dmitriy@dmitriy-VirtualBox:~/Linux$ git push --set-upstream origin branch1
+Total 0 (delta 0), reused 0 (delta 0)
+
+remote: 
+remote: Create a pull request for 'branch1' on GitHub by visiting:
+remote:      https://github.com/Dimis1993/Linux/pull/new/branch1
+remote: 
+To github.com:Dimis1993/Linux.git
+ * [new branch]      branch1 -> branch1
+Ветка «branch1» отслеживает внешнюю ветку «branch1» из «origin».
+dmitriy@dmitriy-VirtualBox:~/Linux$ 
+dmitriy@dmitriy-VirtualBox:~/Linux$ ls -la
+итого 24
+drwxr-xr-x  3 dmitriy dmitriy 4096 мая  6 23:05  .
+drwxr-xr-x 16 dmitriy dmitriy 4096 мая  6 22:52  ..
+drwxr-xr-x  8 dmitriy dmitriy 4096 мая  6 22:58  .git
+-rw-r--r--  1 dmitriy dmitriy 1610 мая  6 22:52  .gitignore
+-rw-rw-r--  1 dmitriy dmitriy 7713 мая  6 23:05 'HW #2.odt'
+dmitriy@dmitriy-VirtualBox:~/Linux$ git add HW #2.odt
+fatal: спецификатор пути «HW» не соответствует ни одному файлу
+dmitriy@dmitriy-VirtualBox:~/Linux$ git add HW#2.odt
+fatal: спецификатор пути «HW#2.odt» не соответствует ни одному файлу
+dmitriy@dmitriy-VirtualBox:~/Linux$ git add 'HW #2.odt'
+dmitriy@dmitriy-VirtualBox:~/Linux$ git status
+На ветке branch1
+Ваша ветка обновлена в соответствии с «origin/branch1».
+
+Изменения, которые будут включены в коммит:
+  (используйте «git reset HEAD <файл>…», чтобы убрать из индекса)
+
+	новый файл:    HW #2.odt
+
+dmitriy@dmitriy-VirtualBox:~/Linux$ git commit -m 'added file 'HW #2.odt'
+
+*** Пожалуйста, скажите мне кто вы есть.
+
+Запустите
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Ваше Имя"
+
+для указания идентификационных данных аккаунта по умолчанию.
+Пропустите параметр --global для указания данных только для этого репозитория.
+
+fatal: не удалось выполнить автоопределение адреса электронной почты (получено «dmitriy@dmitriy-VirtualBox.(none)»)
+dmitriy@dmitriy-VirtualBox:~/Linux$ git config --global user.email "buldax@yandex.ru"
+dmitriy@dmitriy-VirtualBox:~/Linux$ git config --global user.name "Dmitriy Buldakov"
+dmitriy@dmitriy-VirtualBox:~/Linux$ git commit -m 'added file 'HW #2.odt'
+[branch1 444ee6d] added file HW
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 HW #2.odt
+dmitriy@dmitriy-VirtualBox:~/Linux$ git push
+Подсчет объектов: 3, готово.
+Сжатие объектов: 100% (3/3), готово.
+Запись объектов: 100% (3/3), 6.37 KiB | 210.00 KiB/s, готово.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:Dimis1993/Linux.git
+   b270031..444ee6d  branch1 -> branch1
